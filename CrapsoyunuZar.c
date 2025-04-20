@@ -3,19 +3,19 @@
 #include <time.h>
 #include <locale.h>
 #include <string.h>
-#include <windows.h>
+#include <windows.h> // try "#include <unistd.h>" , if error encountered.
 
-/* ZAR ATMA OYUNU (CRAPS)
+/* 
+ZAR ATMA OYUNU (CRAPS) 2 Oyuncu iÃ§in!
 
-1)Ýki zar atýlýr
-2)Gelen zarlar toplanýr.
-3)Ýlk atýþta sonuç 7 veya 11 ise oyuncu kazanýr.
-4)Ýlk atýþta 2, 3 veya 12 gelirse oyuncu kaybeder.
-5)Bu durumlar oluþmazsa ilk atýþta gelen sayý oyuncunun puaný oluyor. Oyuncu bu durumdan sonra kazanmak için ilk attýðý zarý atmalýdýr.
-NOT: Ýlk zardan sonra 6 defa daha atacak puanýný tutturamazsa kaybeder.
+1)Ä°ki zar atÄ±lÄ±r
+2)Gelen zarlar toplanÄ±r.
+3)Ä°lk atÄ±ÅŸta sonuÃ§ 7 veya 11 ise oyuncu kazanÄ±r.
+4)Ä°lk atÄ±ÅŸta 2, 3 veya 12 gelirse oyuncu kaybeder.
+5)Bu durumlar oluÅŸmazsa ilk atÄ±ÅŸta gelen sayÄ± oyuncunun puanÄ± oluyor. Oyuncu bu durumdan sonra kazanmak iÃ§in ilk attÄ±ÄŸÄ± zarÄ± atmalÄ±dÄ±r.
+NOT: Ä°lk zardan sonra 6 defa daha atacak puanÄ±nÄ± tutturamazsa kaybeder.
 
 */
-
 
 
 int ilkatis_kazanma(int,int);
@@ -39,25 +39,25 @@ int main (void)
 	setlocale(LC_ALL,"Turkish");
 	srand(time(NULL));		
 
-	printf("Kullanýcýlarýn isimlerini sýrasýyla giriniz(Oyuncu1,Oyuncu2):"); 
-	fgets(Oyuncu1.isim, sizeof(Oyuncu1.isim), stdin);                         // Önce girileni alýr. Sonra girileni 50 karakteri aþmayacak þekilde okur.
+	printf("KullanÄ±cÄ±larÄ±n isimlerini sÄ±rasÄ±yla giriniz(Oyuncu1,Oyuncu2):"); 
+	fgets(Oyuncu1.isim, sizeof(Oyuncu1.isim), stdin);                         // Ã–nce girileni alÄ±r. Sonra girileni 50 karakteri aÅŸmayacak ÅŸekilde okur.
 	Oyuncu1.isim[strcspn(Oyuncu1.isim, "\n")] = '\0';
 	
 	fgets(Oyuncu2.isim, sizeof(Oyuncu2.isim), stdin);  
 	Oyuncu2.isim[strcspn(Oyuncu2.isim, "\n")] = '\0';
 	
-	printf("%s zar atsýn mý(Evet için: E): ",Oyuncu1.isim);
+	printf("%s zar atsÄ±n mÄ±(Evet iÃ§in: E): ",Oyuncu1.isim);
 	scanf("%c",&Oyuncu1.choose);
 	
 	if(Oyuncu1.choose != 'E')
 	{
-		printf("%s zar atýþý yapmadý.\n",Oyuncu1.isim);
+		printf("%s zar atÄ±ÅŸÄ± yapmadÄ±.\n",Oyuncu1.isim);
 		return -1;
 	}	
 	
 	else
 	{
-		printf("%s zar atýyor... \n",Oyuncu1.isim); sleep(2);
+		printf("%s zar atÄ±yor... \n",Oyuncu1.isim); sleep(2);
 		
 		Oyuncu1.zar1 = rand()%6 + 1;
 		Oyuncu1.zar2 = rand()%6 + 1;
@@ -68,19 +68,19 @@ int main (void)
 	}
 	
 	
-	printf("%s zar atsýn mý(Evet için: E): ",Oyuncu2.isim);
+	printf("%s zar atsÄ±n mÄ±(Evet iÃ§in: E): ",Oyuncu2.isim);
 	getchar();
 	scanf("%c",&Oyuncu2.choose);
 	
 	if(Oyuncu2.choose != 'E')
 	{
-		printf("%s zar atýþý yapmadý.\n",Oyuncu2.isim);
+		printf("%s zar atÄ±ÅŸÄ± yapmadÄ±.\n",Oyuncu2.isim);
 		return -1;
 	}	
 	
 	else
 	{
-		printf("%s zar atýyor... \n",Oyuncu2.isim); sleep(2);
+		printf("%s zar atÄ±yor... \n",Oyuncu2.isim); sleep(2);
 		
 		Oyuncu2.zar1 = rand()%6 + 1;
 		Oyuncu2.zar2 = rand()%6 + 1;
@@ -102,12 +102,12 @@ int main (void)
 
 	sleep(2);
 	
-	printf("Ýlk atýþlarda kaybeden veya kazanan olmadý 2.tur baþlýyor...\n");
+	printf("Ä°lk atÄ±ÅŸlarda kaybeden veya kazanan olmadÄ± 2.tur baÅŸlÄ±yor...\n");
 	
 	sleep(2);
 	
 	int hak = 5 ; 
-	int o1,o2;
+	int o1 = -1, o2 = -1;
 	
 	while(hak >= 0)
 	{
@@ -133,18 +133,23 @@ int main (void)
 	
 	if( o2 < o1 )
 	{
-		printf("%s ilk turda attýðý zarý tekrar atarak %d. atýþýnda kazandý\n",Oyuncu2.isim,o2 + 1);
+		printf("%s ilk turda attÄ±ÄŸÄ± zarÄ± tekrar atarak %d. atÄ±ÅŸÄ±nda kazandÄ±\n",Oyuncu2.isim,o2 + 1);
 	}
 	
 	else if( o2 > o1)
 	{
-		printf("%s ilk turda attýðý zarý tekrar atarak %d. atýþýnda kazandý\n",Oyuncu1.isim,o1 + 1);
+		printf("%s ilk turda attÄ±ÄŸÄ± zarÄ± tekrar atarak %d. atÄ±ÅŸÄ±nda kazandÄ±\n",Oyuncu1.isim,o1 + 1);
 	}
 	
-	else 
-		printf("Ýki oyuncu da ilk turda attýðý zarlarý ayný anda attýðý için berabere\n");
+	else if( o2 == o1) 
+		printf("Ä°ki oyuncu da ilk turda attÄ±ÄŸÄ± zarlarÄ± aynÄ± anda attÄ±ÄŸÄ± iÃ§in berabere\n");
+	
+	else
+		printf("Ä°ki oyuncu da son 6 haklarÄ±nda ilk attÄ±klarÄ± zarÄ± tutturamadÄ±lar kazanan yok!\n");
+		
 	
 	return 0;
+	
 }
 
 int ilkatis_kazanma(int puan1,int puan2)
@@ -158,21 +163,21 @@ int ilkatis_kazanma(int puan1,int puan2)
 	
 	if(oyuncu1 > oyuncu2)
 	{
-		printf("%s 11 veya 7 atarak kazandý\n",Oyuncu1.isim);
+		printf("%s 11 veya 7 atarak kazandÄ±\n",Oyuncu1.isim);
 		return 0;
 	}
 				
 		
 	else if(oyuncu2 > oyuncu1)
 	{
-		printf("%s 11 veya 7 atarak kazandý.\n",Oyuncu2.isim);
+		printf("%s 11 veya 7 atarak kazandÄ±.\n",Oyuncu2.isim);
 		return 0;
 	}
 			
 	
 	else if(oyuncu1 == 1 && oyuncu2 == 1)
 	{
-		printf("Her iki oyuncu da 11 veya 7 atarak kazandý\n");
+		printf("Her iki oyuncu da 11 veya 7 atarak kazandÄ±\n");
 		return 0;	
 	}	
 		
@@ -188,14 +193,14 @@ int ilkatis_kaybetme(int puan1, int puan2)
 	
 	if(oyuncu1 > oyuncu2)
 	{
-		printf("%s kazandý çünkü %s 2, 3 veya 12 atarak kaybetti\n",Oyuncu1.isim,Oyuncu2.isim);
+		printf("%s kazandÄ± Ã§Ã¼nkÃ¼ %s 2, 3 veya 12 atarak kaybetti\n",Oyuncu1.isim,Oyuncu2.isim);
 		return 0;
 	}
 				
 		
 	else if(oyuncu2 > oyuncu1)
 	{
-		printf("%s kazandý çünkü %s 2, 3 veya 12 atarak kaybetti.\n",Oyuncu2.isim,Oyuncu1.isim);
+		printf("%s kazandÄ± Ã§Ã¼nkÃ¼ %s 2, 3 veya 12 atarak kaybetti.\n",Oyuncu2.isim,Oyuncu1.isim);
 		return 0;
 	}
 			
