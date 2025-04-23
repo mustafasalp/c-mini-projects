@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
-// Recursive toplama programı.
+// Recursive 1 den N e kadar toplama ve basamaklarÄ±n toplamÄ± programÄ±.
 
 int toplama(int);
 int basamak_toplama(int);
@@ -16,14 +16,14 @@ int main (void)
 	unsigned int number1;
 	int number2;
 	
-	printf("0 dan sayıya kadar toplanmasını istediğiniz sayıyı giriniz:");
+	printf("0 dan sayÃ½ya kadar toplanmasÃ½nÃ½ istediÃ°iniz sayÃ½yÃ½ giriniz:");
 	scanf("%u",&number1);
 	
 	printf("%d",toplama(number1));
 	
 	puts("");
 	
-	printf("Basamaklarının toplanmasını istediğiniz sayıyı giriniz: ");
+	printf("BasamaklarÃ½nÃ½n toplanmasÃ½nÃ½ istediÃ°iniz sayÃ½yÃ½ giriniz: ");
 	scanf("%d",&number2);
 	 
 	printf("%d",basamak_toplama(number2));
