@@ -9,17 +9,17 @@ int main (void)
 	setlocale(LC_CTYPE,"Turkish");
 	
 	
-	char *Ptr_ilkbahar[] = {"mart","nisan", "mayıs"};
-	char *Ptr_yaz[] = {"haziran","temmuz", "ağustos"};                            //BUNLAR HER BİRİ KARAKTER TUTAN POİNTER ARRAYİ
-	char *Ptr_kis[] = {"aralık", "ocak", "şubat"};	
-	char *Ptr_sonbahar[] = {"eylül", "ekim", "kasım"};
+	char *Ptr_ilkbahar[] = {"mart","nisan", "mayÃ½s"};
+	char *Ptr_yaz[] = {"haziran","temmuz", "aÃ°ustos"};                            //BUNLAR HER BÃRÃ KARAKTER TUTAN POÃNTER ARRAYÃ
+	char *Ptr_kis[] = {"aralÃ½k", "ocak", "Ã¾ubat"};	
+	char *Ptr_sonbahar[] = {"eylÃ¼l", "ekim", "kasÃ½m"};
 	
-	char* *PtrMevsimler[4]; //BU DİZİ POİNTERLARI POİNTER TUTARLAR(POINTERLARIN TUTTUKLARI POINTERLAR DA KARAKTER TUTARLAR).
+	char* *PtrMevsimler[4]; //BU DÃZÃ POÃNTERLARI POÃNTER TUTARLAR(POINTERLARIN TUTTUKLARI POINTERLAR DA KARAKTER TUTARLAR).
 	
-	PtrMevsimler[0] = Ptr_ilkbahar; // ilk pointer mart ayını tutan pointerı tutsun
-	PtrMevsimler[1] = Ptr_yaz; 		// ikinci pointer haziran ayını tutan pointerı tutsun
-	PtrMevsimler[2] = Ptr_sonbahar; 		// üçüncü pointer aralık ayını tutan pointerı tutsun
-	PtrMevsimler[3] = Ptr_kis; // dördüncü pointer eylül ayını tutan pointerı tutsun
+	PtrMevsimler[0] = Ptr_ilkbahar; // ilk pointer mart ayÃ½nÃ½ tutan pointerÃ½ tutsun
+	PtrMevsimler[1] = Ptr_yaz; 		// ikinci pointer haziran ayÃ½nÃ½ tutan pointerÃ½ tutsun
+	PtrMevsimler[2] = Ptr_sonbahar; 		// Ã¼Ã§Ã¼ncÃ¼ pointer aralÃ½k ayÃ½nÃ½ tutan pointerÃ½ tutsun
+	PtrMevsimler[3] = Ptr_kis; // dÃ¶rdÃ¼ncÃ¼ pointer eylÃ¼l ayÃ½nÃ½ tutan pointerÃ½ tutsun
 
 	int i,j;
 	
