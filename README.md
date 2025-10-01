@@ -1,2 +1,2 @@
 # **C PROJECTS**
-_This repo contains my small practicing projects_ 
+_**This repo contains my small practicing projects in C**_ 
