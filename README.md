@@ -1,2 +1,2 @@
-# c-mini-projects
-Practices on my C learning Journey 
+# **C PROJECTS**
+_This repo contains my small practicing projects_ 
